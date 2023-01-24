@@ -19,6 +19,13 @@ import java.util.List;
 public class GoogleAuthUtil {
 
     public static Credential authorize() throws IOException, GeneralSecurityException {
+
+        /**
+         * Файл credentials.json должен находиться по адресу:
+         * КОРЕНЬ_ПРОЕКТА/src/main/resources/secret/credentials.json
+         *
+         * В нём находятся секретные данные, нужные для доступа к апи гугла.
+         * */
         InputStream is = GoogleAuthUtil.class.getResourceAsStream("/secret/credentials.json");
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(
                 JacksonFactory.getDefaultInstance(),

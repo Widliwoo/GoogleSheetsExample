@@ -13,6 +13,14 @@ public class SheetsServiceUtil {
 
     public static Sheets getSheetsService() throws IOException, GeneralSecurityException {
         Credential credential = GoogleAuthUtil.authorize();
+
+        /**
+         * Sheets представляет собой абстракцию, которая ограждает нас от необходимости
+         * слать запросы на апи гугла напрямую.
+         *
+         * Внутри реализованы необходимые HTTP вызовы, нам вместо них предоставлены методы и объекты,
+         * которые мы можем использовать.
+         * */
         return new Sheets.Builder(
                 GoogleNetHttpTransport.newTrustedTransport(),
                 JacksonFactory.getDefaultInstance(), credential)
